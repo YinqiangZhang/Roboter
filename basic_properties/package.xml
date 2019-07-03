@@ -39,6 +39,11 @@
   <exec_depend>roscpp</exec_depend>
   <build_depend>rospy</build_depend>
   <exec_depend>rospy</exec_depend>
+  <!-- add for learning tf -->
+  <build_depend>turtlesim</build_depend>
+  <exec_depend>turtlesim</exec_depend>
+  <build_depend>tf</build_depend>
+  <exec_depend>tf</exec_depend>
   <!-- Use build_depend for packages you need at compile time: -->
   <build_depend>message_generation</build_depend>
   <!-- Use build_export_depend for packages you need in order to build against this package: -->

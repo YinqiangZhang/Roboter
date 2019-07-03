@@ -11,6 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
     roscpp
     rospy
     std_msgs
+    tf
+    turtlesim
     message_generation
     )
 
@@ -173,6 +175,9 @@ add_dependencies(talker basic_properties_generate_messages_cpp)
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 add_dependencies(listener basic_properties_generate_messages_cpp)
+
+add_executable(turtle_tf_broadcaster src/turtle_tf_broadcaster.cpp)
+target_link_libraries(turtle_tf_broadcaster ${catkin_LIBRARIES})
 #############
 ## Install ##
 #############
