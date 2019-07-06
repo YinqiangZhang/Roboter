@@ -28,7 +28,10 @@ int main(int argc, char** argv){
     tf::StampedTransform transform;
     try{
       // to find the lastest transform form turtle1 to turtle2
-      listener.lookupTransform("/turtle2", "/turtle1", ros::Time(0), transform);
+      //listener.lookupTransform("/turtle2", "/turtle1", ros::Time(0), transform);
+
+      // the turtle is tracking a second target.
+      listener.lookupTransform("/turtle2", "/carrot1", ros::Time(0), transform);
     }
     catch(tf::TransformException &ex){
       ROS_ERROR("%s", ex.what());
