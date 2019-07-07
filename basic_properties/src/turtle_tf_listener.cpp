@@ -31,8 +31,15 @@ int main(int argc, char** argv){
       //listener.lookupTransform("/turtle2", "/turtle1", ros::Time(0), transform);
 
       // the turtle is tracking a second target.
-      listener.lookupTransform("/turtle2", "/carrot1", ros::Time(0), transform);
+      //listener.lookupTransform("/turtle2", "/carrot1", ros::Time(0), transform);
+      // find specific transform
+      ros::Time now = ros::Time::now();
+      ros::Time past = ros::Time::now() - ros::Duration(5.0);
+      // wait for the specific frame transform (in this statement is now), maximal 3 second.
+      listener.waitForTransform("/turtle2", now,  "/turtle1", past, "/world", ros::Duration(3.0));
+      listener.lookupTransform("/turtle2",  now,  "/turtle1", past, "/world", transform);
     }
+
     catch(tf::TransformException &ex){
       ROS_ERROR("%s", ex.what());
       ros::Duration(1.0).sleep();
